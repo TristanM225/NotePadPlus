@@ -31,10 +31,12 @@ const getNotes = () =>
     headers: {
       'Content-Type': 'application/json',
     },
-  });
+  })
+    .then((response) => response.json())
+    .catch((error) => console.error('Error fetching notes:', error));
 
 const saveNote = (note) =>
-  fetch('/api/notes', {
+  fetch('/api/notes', { // Replace with your server's URL
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
